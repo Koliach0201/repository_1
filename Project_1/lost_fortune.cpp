@@ -214,4 +214,71 @@ int main()
     return 0;
 }*/
 
+/*// Программа Designers Network
+// Демонстрирует работу с логическими операторами
 
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() 
+{
+    string username;
+    string password;
+    bool success;
+    cout << "\tGame Designer's Network\n";
+    do 
+    {
+        cout << "\nUsername: ";
+        cin >> username;
+        cout << "Password: ";
+        cin >> password;
+        if (username == "S.Meier" && password == "civilization") 
+        {
+            cout << "\nHey, Sid.";
+            success = true;
+        }
+        else if (username == "S.Miyamoto" && password == "mariobros") 
+        {
+            cout << "\nWhat's up, Shigeru?";
+            success = true;
+        }
+        else if (username == "W.Wright" && password == "thesims") 
+        {
+            cout << "\nHow goes it,Will?";
+            success = true;
+        }
+        else if (username == "guest" || password == "guest") 
+        {
+            cout << "\nWelcome, guest.";
+            success = true;
+        }
+        else 
+        {
+            cout << "\nYour login failed.";
+            success = false;
+        }
+    } while (!success);
+    return 0;
+}*/
+
+
+// Программа Die Roller
+// Демонстрирует генерирование случайных чисел
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int main() 
+{
+    srand(static_cast<unsigned int>(time(0)));
+    // запускаем генератор случайных чисел
+    int randomNumber = rand(); // генерируем случайное число
+    int die = (randomNumber % 6) + 1; // получаем число между 1 и 6
+    cout << "You rolled a " << die << endl;
+    return 0;
+}
