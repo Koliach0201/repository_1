@@ -264,7 +264,7 @@ int main()
 }*/
 
 
-// Программа Die Roller
+/*// Программа Die Roller
 // Демонстрирует генерирование случайных чисел
 
 #include <iostream>
@@ -280,5 +280,44 @@ int main()
     int randomNumber = rand(); // генерируем случайное число
     int die = (randomNumber % 6) + 1; // получаем число между 1 и 6
     cout << "You rolled a " << die << endl;
+    return 0;
+}*/
+
+
+// Игра Guess My Number
+// Классическая игра в угадывание чисел
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int main() 
+{
+    srand(static_cast<unsigned int>(time(0))); // запускаем генератор случайных чисел
+    int secretNumber = rand() % 100 + 1; // случайное число в диапазоне от 1 до 100
+    int tries = 0;
+    int guess;
+    cout << "\tWelcome to Guess My Number\n\n";
+
+    do 
+    {
+        cout << "Enter a guess: ";
+        cin >> guess;
+        ++tries;
+        if (guess > secretNumber)
+        {
+            cout << "Too high!\n\n";
+        }
+        else if (guess < secretNumber)
+        {
+            cout << "Too low!\n\n";
+        }
+        else 
+        {
+            cout << "\nThat's it! You got it in " << tries << " guesses!\n";
+        }
+    } while (guess != secretNumber);
     return 0;
 }
