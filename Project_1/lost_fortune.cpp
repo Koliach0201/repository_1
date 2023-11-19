@@ -284,7 +284,7 @@ int main()
 }*/
 
 
-// Игра Guess My Number
+/*// Игра Guess My Number
 // Классическая игра в угадывание чисел
 
 #include <iostream>
@@ -295,29 +295,82 @@ using namespace std;
 
 int main() 
 {
+    setlocale(LC_ALL, "Russian");
     srand(static_cast<unsigned int>(time(0))); // запускаем генератор случайных чисел
     int secretNumber = rand() % 100 + 1; // случайное число в диапазоне от 1 до 100
     int tries = 0;
     int guess;
-    cout << "\tWelcome to Guess My Number\n\n";
+    cout << "\tДобро пожаловать в «Угадай мой номер»\n\n";
 
     do 
     {
-        cout << "Enter a guess: ";
+        cout << "Введите предположение: ";
         cin >> guess;
         ++tries;
         if (guess > secretNumber)
         {
-            cout << "Too high!\n\n";
+            cout << "Слишком высоко!\n\n";
         }
         else if (guess < secretNumber)
         {
-            cout << "Too low!\n\n";
+            cout << "Слишком низко!\n\n";
         }
         else 
         {
-            cout << "\nThat's it! You got it in " << tries << " guesses!\n";
+            cout << "\nВот и все! Вы угадали это с " << tries << " попытки!\n";
         }
     } while (guess != secretNumber);
+    return 0;
+}*/
+
+
+// Guess My Number 2.0
+// Классическая игра в угадывание чисел
+
+#include <iostream>
+
+using namespace std;
+
+// игровой цикл
+
+int main()
+{
+    // настройки
+    setlocale(LC_ALL, "Russian");
+    int secretNumber;
+    cout << "Введите число от 0 до 100" << endl;
+    cin >> secretNumber;
+
+    int tries = 0;
+    int guess, max = 100, min = 0;
+
+    cout << "\tДобро пожаловать в «Угадай мой номер» 2.0\n\n";
+
+    do
+    {
+        // получаем данные игрока
+
+        guess = min + (max - min) / 2;
+        cout << " Guess: " << guess << endl;
+        ++tries;
+
+        // обновляем внутренности и дисплей игры
+
+        if (guess > secretNumber)
+        {
+            cout << "Слишком высоко!\n\n";
+            max = guess;
+        }
+        else if (guess < secretNumber)
+        {
+            cout << "Слишком низко!\n\n";
+            min = guess;
+        }
+        else
+        {
+            cout << "\nВот и все! Вы угадали это с " << tries << " попытки!\n";
+        }
+    } while (guess != secretNumber);
+
     return 0;
 }
